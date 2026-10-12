@@ -1,0 +1,24 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp / backup files
+*.tmp
+*.bak
+*~
+
+# Editor swap files
+*.swp
+*.swo
+*~
+
+# Crash logs
+crashlytics-build.properties
+*.crash.log
+
+# Unity-regenerated project/solution files that may appear here
+*.csproj
+*.sln
+
+# NOTE: .meta files are intentionally NOT ignored - they must be committed.

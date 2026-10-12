@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4117885867703763385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3875229540690488488}
+  - component: {fileID: 1583511600122194423}
+  m_Layer: 0
+  m_Name: HeroUnit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3875229540690488488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117885867703763385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1583511600122194423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117885867703763385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c13d7c5f7a5c7c468e38b6d8fecec09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitInfo:
+    unitType: 0
+    monsterUnit: {fileID: 0}
+    heroUnit: {fileID: 0}
+    level: 0
+    health: 0
+    maxHealth: 0
+    name: 
+    isBoss: 0
+    actionBar: 0
+    actionBarMax: 0
+    actionBarSpeed: 0
+    actionBarRollover: 0
+    offense: 0
+    defense: 0
+    utility: 0
+    physicalDamage: 0
+    magicDamage: 0
+    armor: 0
+    resistance: 0
+    actionSpeed: 0
+    escapeSpeed: 0
+  heroClass: 0
+  moveSpeed: 5
+  rotationSpeed: 5
+  isActive: 0
+  isDying: 0
+  modelPrefab: {fileID: 0}
+  animator: {fileID: 0}
+  animationState: 0
+  heroTeam: {fileID: 0}
+  heroAddon: {fileID: 0}
+  popupTextAddon: {fileID: 0}
+  GameManager: {fileID: 0}
+  DeathVfx: {fileID: 1456060657882760, guid: f9c0c5f5fca21314dab6c6537b42fb36, type: 3}
+  debug:
+    isDebugging: 0
+  currentPath: []
+  nextTargetObject: {fileID: 0}

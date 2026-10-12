@@ -1,0 +1,26 @@
+# Auto detect text files and perform LF normalization by default
+* text=auto
+
+# Explicit text types
+*.cs text diff=csharp
+*.json text
+*.md text
+
+# Unity YAML - treat as text so diffs are readable, use Unity's smart merge driver
+*.unity text merge=unityyamlmerge eol=lf
+*.prefab text merge=unityyamlmerge eol=lf
+*.asset text merge=unityyamlmerge eol=lf
+*.mat text merge=unityyamlmerge eol=lf
+*.anim text merge=unityyamlmerge eol=lf
+*.controller text merge=unityyamlmerge eol=lf
+
+# Common binaries
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.psd binary
+*.fbx binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.ttf binary

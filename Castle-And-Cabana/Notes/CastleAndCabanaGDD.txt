@@ -1,0 +1,165 @@
+
+===============================================================
+|				Castle and Cabana:
+---------------------------------------------------------------
+|				 Game Design Document
+===============================================================
+
+Tower Defensive round starts as a base of your tower and the top floor with (you) the boss
+Defeat: The Heroes get to the top floor and defeat you.
+
+Victory, defeating all the heroes or surviving till time runs out
+
+Add Floors to your castle to create space between heroes coming in at the floor level and reaching the top.
+
+A Floor consist of 
+	A room with a type: Typing will affect all units in a room with better benefits for player units
+	Monsters: Will Block the heroes from leaving untill all monsters are defeated
+	And Traps: Will only affect adventures but takes up monster slots spaces and will not block hero progress
+
+When a group of heroes enter a floor They will always spend at least a turn there.
+if there are monsters on that floor the heroes will have to fight until 1 side is defeated. 
+
+Room Types - Gives a buff, x2 for your team 
+	- Etc, Etc
+Monsters: Basic
+	- Slime, Bat, Spider, Skeleton, Golem, Flytrap, Wizard, Orc, Dragon
+Monsters: Elite
+	- Named Characters who are special versions of basic enemise with unique abilites
+Trap:
+	- Iron ball, Stun Trap, Fire Pit, Caltrops
+
+===============================================================
+| 1. - Game Overview
+---------------------------------------------------------------
+| 1.1 - Title: The Dark Lord's Castle: Resort and Spa
+---------------------------------------------------------------
+| 1.2 - Genre: Tower Defense & Management Simulation
+---------------------------------------------------------------
+| 1.3 - Platform(s): PC, Console
+---------------------------------------------------------------
+| 1.4 - Target Audience: Ages 13+, fantasy fans, tower defense and management enthusiasts
+---------------------------------------------------------------
+| 1.5 - Game Description:
+| The Dark Lord's Castle: Resort and Spa invites players to live as a dark overlord managing a dual life—defending a gothic castle from heroic intruders at night while running a bustling all-inclusive resort in the nearby town by day. Heroes, eager to raid the castle, find themselves spending gold on weapon upgrades and relaxation packages at the resort, giving the player essential resources. The player balances income from the town with strategic upgrades to defenses and gains followers in the afternoons to aid in both endeavors.
+===============================================================
+2. - Game Mechanics
+
+2.1 - Gameplay Structure
+
+2.1.1 - Part 1: Tower Defense (Castle)
+
+The player sets up traps, summons minions, and fortifies defenses to stop waves of heroes from reaching the top floor of the castle.
+Victory Condition: Defend the castle’s top floor from all invading heroes.
+Defeat Condition: A hero reaches the top floor and defeats the Evil Overlord.
+
+2.1.2 - Part 2: Resort Management (Town)
+
+The town functions as a fully equipped marketplace and resort, with shops selling armor, weapons, and items to heroes.
+The player earns gold by managing relaxation services like hot springs, massage parlors, and taverns, which also provide heroes with buffs.
+Services and items intertwine with the tower defense, as heroes return to the town needing specific treatments depending on how they were defeated in the castle (e.g., burned heroes seek hot springs, beaten heroes seek massages).
+Challenge Loop: Upgrades in the town make heroes stronger, enhancing their abilities and making castle defenses progressively harder.
+
+2.1.3 - Part 3: Personal Upgrade and Follower Relationships
+
+Each afternoon, the player can improve relationships with evil followers, who have taken human form to work in the town and castle.
+Building relationships with these followers provides the player with personal upgrades that can enhance either castle defenses or resort services.
+
+2.2 - Game Flow
+Resource Gathering: Earn "Soul Points" from heroes defeated in the castle and "Gold" from the resort.
+Upgrade Path: Resources are used to either strengthen castle defenses or expand town facilities and services.
+Day/Night Cycle: Players alternate between castle defense, resort management, and follower relationship-building in the afternoons.
+
+
+3. - Core Gameplay Elements
+
+3.1 - Castle Defense (Tower Defense)
+Traps: Includes various mechanisms like fire pits, spike traps, and magic barriers that can be upgraded for increased damage.
+Minions: Creatures like goblins, skeletons, and demons that can be positioned on different floors to slow and weaken heroes.
+Defense Strategy: Traps and minions are positioned based on hero traits and expected paths through the castle.
+
+3.2 - Resort Management
+Shops and Services:
+Shops: Sell weapons, armor, and items to heroes, increasing their levels and giving buffs.
+Hot Springs and Taverns: Provide relaxation packages that heal and buff heroes, adding a challenge to the player’s next defense.
+Hero Needs Matching: Services align with the way heroes were defeated, creating a cycle where castle defense impacts the resort’s clientele and vice versa.
+
+3.3 - Personal Upgrades and Follower Relationships
+Followers: Evil minions in human form who support castle defenses and town operations.
+Relationship Building: Improving relationships with followers provides options for personal upgrades, increasing either the player’s defense or management abilities.
+
+
+4. - Game Systems
+
+4.1 - Hero AI
+Heroes have different attributes (Strength, Patience, Resilience), affecting their behavior in both castle and resort settings. Buffs from the town increase their power and change defense strategies.
+
+4.2 - Resource Economy
+Soul Points fund trap and minion upgrades.
+Gold funds town expansions, upgrades, and shop goods, reinforcing the loop between town revenue and castle defense.
+
+
+5. - Story
+Castle and Cabana is set in a world where monsters and humans coexist in a tenuous balance. 
+By night, the player defends their fortress from daring adventurers seeking fame and fortune. By day, they manage a thriving resort, catering to those same heroes and offering luxurious services that strengthen them for future encounters. But beneath the surface lies a tale of rebellion, redemption, and a desire to belong.
+
+5.1 - Characters
+
+5.1. - The Protagonist
+The player’s character is an unusual choice for a demon lord—a monster who doesn’t enjoy killing. They find joy in strategy, building connections, and creating something lasting rather than destruction. This unconventional attitude sets them apart in monster society and makes them a target for ridicule and dismissal. Yet it also attracts like-minded misfits—monsters who don’t fit the mold of what their society expects.
+
+5.1. - The Guardian Pet
+The player's companion, an unassuming creature (perhaps a cat, eel, or moth), harbors a powerful secret: they are the previous demon lord, cursed into their current form by their usurper. In this world, every demon lord is marked by a magical guardian, a symbol of their chosen status. However, this tradition hides a darker truth. When a new demon lord rises, they curse their predecessor into the form of a harmless pet, ensuring their power is never truly lost but instead transferred and absorbed over time.
+
+The current guardian, your companion, escaped the castle before their magic crystal—the source of a demon lord’s power—was fully absorbed. Their time is running out, and they’ve chosen you as the unlikely candidate to rise to power. They believe your reluctance to kill and your empathetic nature make you capable of bringing about a new era in monster society.
+
+5.1. - The Misfit Monsters
+As the player builds their team of followers, they encounter monsters who, like the protagonist, don’t quite fit into traditional monster society. These characters bring depth, humor, and heart to the story. For example:
+
+5.1. - The Bat Vampire Person: A vampire who detests drinking blood. Though nutritious, they find it unappealing, describing it as akin to “sucking on a rusty adventurer’s sword.” They dream of creating a café where they can explore the joys of culinary creativity. Recruiting them opens a café in the town, delighting heroes and misfits alike.
+Other Misfits: Each recruitable monster brings their own quirks and dreams, such as a shy Medusa who wears glasses to avoid accidentally petrifying people or a goblin inventor whose contraptions are too “nice” for traditional goblin warfare.
+
+5.2 - Themes
+The story of Castle and Cabana explores themes of belonging, redemption, and finding strength in differences. It highlights the tension between tradition and innovation, and the bonds that form when unlikely allies come together to create something greater than themselves.
+
+With each decision—whether to crush or cater to heroes, which misfits to recruit, or how to manage the balance between defense and hospitality—the player writes their own legend. Will they rise as a new kind of demon lord, reshaping the world for monsters and humans alike, or succumb to the same cycle of power and destruction that has plagued the realm for generations?
+
+6. - User Interface (UI) Design
+HUD: Shows resources, hero stats, day/night cycle, and defense status.
+Menus:
+Defense Menu: For trap and minion placement.
+Town Menu: Manages facilities and shop inventory.
+
+
+7. - Art and Visual Style
+Art Style: Dark, whimsical fantasy style with cartoonish elements. The castle is shadowy and foreboding, while the town is colorful and welcoming.
+Key Visuals: Gothic castle interiors with ominous lighting; bright, whimsical town scenes with vibrant colors.
+
+
+8. - Audio and Music
+Soundtrack: Dark orchestral music for castle defense; upbeat tunes for town activities.
+Sound Effects: Distinct sounds for each trap and service, creating an immersive experience.
+
+
+9. - Technical Requirements
+Engine: Unity3D
+Target Resolution: 1080p, adaptable to higher resolutions
+Physics and Pathfinding: For hero navigation and trap effects.
+
+
+10. - Development Timeline
+
+Phase 1: Prototyping core systems (castle defense, resort management)
+
+Phase 2: Integrating art, sound, and level design
+
+Phase 3: Beta testing and balancing
+
+Release Goal: Q4 2025
+
+
+11. - Monetization Strategy
+
+Core Game Purchase: Full game as a one-time purchase.
+
+DLC (Optional): Expansions for new traps, minions, town facilities, and hero types.
