@@ -11,7 +11,6 @@ desktop.ini
 # Editor swap files
 *.swp
 *.swo
-*~
 
 # Crash logs
 crashlytics-build.properties
@@ -22,3 +21,13 @@ crashlytics-build.properties
 *.sln
 
 # NOTE: .meta files are intentionally NOT ignored - they must be committed.
+
+# NOTE: *~ above is for stray editor backup files, but Unity also treats any
+# folder ending in ~ as unimportable, which is exactly why ProjectSnapshot~
+# and Tools~ are named that way (so their .asset/.cs-like contents are never
+# picked up by Unity's importer). Explicitly un-ignore them so git still
+# tracks them.
+!/Tools~/
+!/Tools~/**
+!/ProjectSnapshot~/
+!/ProjectSnapshot~/**

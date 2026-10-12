@@ -10,15 +10,19 @@ installing the packages listed below.
 2. Create a new empty 3D (URP) Unity project.
 3. Delete the generated `Assets\_Project` placeholder (if any) and clone this
    repo into `Assets\_Project`.
-4. Open **Window → Package Manager** and install every package listed in
+4. After cloning, run `git config core.hooksPath Tools~/git-hooks` from
+   `Assets\_Project\` — this enables the versioned pre-commit hook that keeps
+   `ProjectSnapshot~\` refreshed on every commit (see
+   `Tools~\git-hooks\pre-commit`).
+5. Open **Window → Package Manager** and install every package listed in
    [Package Manager packages](#package-manager-packages) (all are registry
    packages — no git/local-path setup required).
-5. In the Package Manager, switch to **My Assets**, filter by **Imported**,
+6. In the Package Manager, switch to **My Assets**, filter by **Imported**,
    and download + import each package listed in
    [Asset Store packages](#asset-store-packages), in any order.
-6. Open `Assets\_Project\Castle-And-Cabana\Scenes\SampleScene.unity` (the real
-   game scene — **not** `Assets\Scenes\SampleScene.unity`, which is Unity's
-   empty template scene left over from project creation).
+7. Open `Assets\_Project\Castle-And-Cabana\Scenes\Night_Level01.unity` (the
+   real game scene — **not** `Assets\Scenes\SampleScene.unity`, which is
+   Unity's empty template scene left over from project creation).
 
 ---
 

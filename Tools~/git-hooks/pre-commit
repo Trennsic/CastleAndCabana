@@ -1,0 +1,55 @@
+#!/bin/sh
+# pre-commit: refresh Assets/_Project/ProjectSnapshot~ from the Unity project's
+# ProjectSettings/ and Packages/ manifest files, then stage it into this commit.
+#
+# Designed to never fail a commit: if the Unity project root can't be found,
+# or ProjectSettings/ isn't where expected, this prints a warning and exits 0.
+
+repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+if [ -z "$repo_root" ]; then
+    echo "pre-commit (project-snapshot): warning: could not resolve repo root, skipping snapshot" >&2
+    exit 0
+fi
+
+# repo_root is .../Assets/_Project -> project root is two levels up
+project_root=$(cd "$repo_root/../.." 2>/dev/null && pwd)
+if [ -z "$project_root" ] || [ ! -d "$project_root/ProjectSettings" ]; then
+    echo "pre-commit (project-snapshot): warning: '$project_root/ProjectSettings' not found, skipping snapshot" >&2
+    exit 0
+fi
+
+snapshot_dir="$repo_root/ProjectSnapshot~"
+settings_src="$project_root/ProjectSettings"
+settings_dst="$snapshot_dir/ProjectSettings"
+packages_src="$project_root/Packages"
+packages_dst="$snapshot_dir/Packages"
+
+mkdir -p "$settings_dst" "$packages_dst" 2>/dev/null
+
+# --- Mirror ProjectSettings/ (recursive, includes a nested Packages/ subfolder if present) ---
+# Copy every file from source into the snapshot, byte-for-byte (no EOL translation).
+( cd "$settings_src" && find . -type f ) 2>/dev/null | while IFS= read -r rel; do
+    mkdir -p "$settings_dst/$(dirname "$rel")" 2>/dev/null
+    cp -p "$settings_src/$rel" "$settings_dst/$rel" 2>/dev/null
+done
+
+# Mirror deletions: remove snapshot files whose source no longer exists.
+if [ -d "$settings_dst" ]; then
+    ( cd "$settings_dst" && find . -type f ) 2>/dev/null | while IFS= read -r rel; do
+        [ -f "$settings_src/$rel" ] || rm -f "$settings_dst/$rel" 2>/dev/null
+    done
+    find "$settings_dst" -type d -empty -delete 2>/dev/null
+fi
+
+# --- Packages: only the two manifest files, mirrored the same way ---
+for f in manifest.json packages-lock.json; do
+    if [ -f "$packages_src/$f" ]; then
+        cp -p "$packages_src/$f" "$packages_dst/$f" 2>/dev/null
+    else
+        rm -f "$packages_dst/$f" 2>/dev/null
+    fi
+done
+
+git -C "$repo_root" add ProjectSnapshot~ 2>/dev/null
+
+exit 0
