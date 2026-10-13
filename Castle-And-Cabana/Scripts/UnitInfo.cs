@@ -227,11 +227,25 @@ public class UnitInfo
         if (unitType == UnitTypes.Hero) { heroUnit.TakeDamage(damage); }
         else if (unitType == UnitTypes.Monster) { monsterUnit.TakeDamage(damage); }
     }
+    /// <summary>
+    /// Heals the unit by <paramref name="amtHealed"/>, clamped so health cannot exceed
+    /// <see cref="GetMaxHealth"/> (no overheal). Does nothing for a non-positive amount,
+    /// a unit already at 0 health, or a unit mid-death-sequence. Shows a heal popup via
+    /// the unit's own <c>PlayHealEffect</c> rather than routing through
+    /// <see cref="TakeDamage"/>, so no hit animation or death check is triggered.
+    /// </summary>
+    /// <param name="amtHealed">The positive amount of health to restore.</param>
     public void HealHealth(int amtHealed)
     {
-        health += amtHealed;
-        if (unitType == UnitTypes.Hero) { heroUnit.TakeDamage(amtHealed); }
-        else if (unitType == UnitTypes.Monster) { monsterUnit.TakeDamage(amtHealed); }
+        if (amtHealed <= 0) return;
+        if (health <= 0) return;
+        if (unitType == UnitTypes.Hero && heroUnit.GetIsDying()) return;
+        if (unitType == UnitTypes.Monster && monsterUnit.GetIsDying()) return;
+
+        SetHealth(health + amtHealed);
+
+        if (unitType == UnitTypes.Hero) { heroUnit.PlayHealEffect(amtHealed); }
+        else if (unitType == UnitTypes.Monster) { monsterUnit.PlayHealEffect(amtHealed); }
     }
     #endregion
     #endregion

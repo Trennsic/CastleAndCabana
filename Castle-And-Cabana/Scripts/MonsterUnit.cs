@@ -787,6 +787,32 @@ public class MonsterUnit : MonoBehaviour
         else { Debug.LogWarning("[MonsterUnit] modelPrefab or popupTextAddon is null. Cannot take damage."); }
     }
 
+    /// <summary>
+    /// Spawns a floating heal popup near the model to visualize an incoming heal.
+    /// Unlike <see cref="TakeDamage"/>, this does not change health itself - the health
+    /// change happens in <see cref="UnitInfo.HealHealth"/>.
+    /// </summary>
+    /// <param name="amtHealed">The positive amount healed, shown in the popup.</param>
+    public void PlayHealEffect(int amtHealed)
+    {
+        if (modelPrefab != null && popupTextAddon != null)
+        {
+            GameObject facingReference = GetTowerManager().GetFacingReference();
+            if (facingReference != null)
+            {
+                Vector3 modelPosition = modelPrefab.transform.position;
+                Vector3 directionToRef = (facingReference.transform.position - modelPosition).normalized;
+                Vector3 healPopupPosition = modelPosition + directionToRef * 2f + Vector3.up * 2f;
+                popupTextAddon.SpawnPopupText(PopupTextAddon.PopupTextTypes.GainHealth, healPopupPosition, amtHealed);
+
+                if (debug.IsDebugging)
+                    Debug.Log($"[MonsterUnit] Healed: {amtHealed}. Popup spawned at {healPopupPosition}.");
+            }
+            else { Debug.LogWarning("[MonsterUnit] Facing Reference is null. Cannot spawn popup text."); }
+        }
+        else { Debug.LogWarning("[MonsterUnit] modelPrefab or popupTextAddon is null. Cannot show heal popup."); }
+    }
+
     /// <summary>Resets the action bar to its starting value via <see cref="UnitInfo"/>.</summary>
     public void ResetActionBar()
     {

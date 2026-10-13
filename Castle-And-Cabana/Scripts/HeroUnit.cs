@@ -672,6 +672,40 @@ public class HeroUnit : MonoBehaviour
         StartCoroutine(PlayTakeHitAnimation());
     }
 
+    /// <summary>
+    /// Spawns a floating heal popup near the model to visualize an incoming heal.
+    /// Unlike <see cref="TakeDamage"/>, this does not play a hit animation and does not
+    /// change health itself - the health change happens in <see cref="UnitInfo.HealHealth"/>.
+    /// </summary>
+    /// <param name="amtHealed">The positive amount healed, shown in the popup.</param>
+    public void PlayHealEffect(int amtHealed)
+    {
+        if (modelPrefab != null && popupTextAddon != null)
+        {
+            GameObject facingReference = GetTowerManager().GetFacingReference();
+
+            if (facingReference != null)
+            {
+                Vector3 modelPosition = modelPrefab.transform.position;
+                Vector3 directionToReference = (facingReference.transform.position - modelPosition).normalized;
+                Vector3 healPopupPosition = modelPosition + directionToReference * 2f + Vector3.up * 2f;
+
+                popupTextAddon.SpawnPopupText(PopupTextAddon.PopupTextTypes.GainHealth, healPopupPosition, amtHealed);
+
+                if (debug.IsDebugging)
+                    Debug.Log($"[HeroUnit] Healed: {amtHealed}. Popup text spawned at {healPopupPosition}.");
+            }
+            else
+            {
+                Debug.LogWarning("[HeroUnit] Facing Reference is null. Cannot spawn popup text.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[HeroUnit] modelPrefab or popupTextAddon is null. Cannot show heal popup.");
+        }
+    }
+
     // -------------------------------------------------------------------------
     // Death
     // -------------------------------------------------------------------------
